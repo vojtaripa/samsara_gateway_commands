@@ -33,242 +33,6 @@ $(function()
         function()
         {
 
-
-
-
-            //creating button:
-
-            //PING
-            //var $button1 = $("<br><h2 id='sites'>Sites SG Commands:</h2><span id='button1'  class='u-marginRightXs' ><button id='tt' style='background-color:teal;' class='Button Button--md' type='button'><div  class='Button-children'>1.Ping</div></button></span>").click(function ()
-            $("#tt").click(function ()
-            {
-                //alert("test");
-
-
-
-                $("input:text:eq(0)").attr('id', 'ping').focus(); //.val("ping -c 2  192.168.1.64")
-
-                let element = document.getElementById("ping");
-
-                element.onkeydown = e => alert(e.key);//WORKS
-                alert(element.value());
-
-                document.getElementById("tt").onclick(function () {
-                    element.value += "a";
-                    alert("clicked");
-                })();
-
-
-
-                /*
-                document.getElementById("ping").value += "aaa";
-
-                /*
-                var e = jQuery.Event( "keydown", { keyCode: 65 } );
-
-                $("input:text:eq(0)").val("ping -c 2  192.168.1.64").attr('id', 'ping').focus(); //[name=command]:eq(0)
-                $("#ping").trigger($.Event('keypress', { keycode: 65 })).trigger($.Event('keypress', { keycode: 66 }));
-                $("#ping").trigger(e);
-                alert($("#ping").val());
-                $("#ping").trigger(e);
-
-
-                window.addEventListener('keydown', (e) => {
-                    console.log(e)
-                })
-
-                window.dispatchEvent(new KeyboardEvent('keydown', {
-                    'key': 'a'
-                }));
-                alert($("#ping").val());
-                */
-
-/*
-                $("#ping").val("ping -c 2  192.168.1.64");
-
-                var test1 = document.getElementById("ping");
-                test1.value = value.substr(0,value.length-1);
-                alert(test1.value);
-                //$("input.Input)").val("test");
-                */
-            });
-
-            //NMAP
-            //var $button2 = $("<span class='u-marginRightXs'><button style='background-color:teal;' id='button2' class='Button Button--md' type='button'><div class='Button-children'>2.nmap</div></button></span>").click(function ()
-            $("#nmap").click(function ()
-            {
-                //alert("test");
-                $("input:text:eq(0)").val("nmap 198.168.100.0/24"); //[name=command]:eq(0)
-                //$("input.Input)").val("test");
-            });
-
-            //ARP
-            //var $button3 = $("<span class='u-marginRightXs'><button style='background-color:teal;' id='button3' class='Button Button--md' type='button'><div class='Button-children'>3.ARP</div></button></span>").click(function ()
-            $("#arp").click(function ()
-            {
-                //alert("test");
-                $("input:text:eq(0)").val("arp -a | sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4"); //[name=command]:eq(0)
-                //$("input.Input)").val("test");
-            });
-
-
-            //FF PROBE
-            $("#ff_probe").click(function ()
-            //var $button4 = $("<span class='u-marginRightXs'><button style='background-color:teal;' id='button4' class='Button Button--md' type='button'><div class='Button-children'>4.FF Probe</div></button></span>").click(function ()
-            {
-                //alert("test");
-                $("input:text:eq(0)").val("ffprobe -hide_banner -rtsp_transport tcp rtsp://samsara:onwards-upwards-CW-auth-11@10.0.8.180:554/live1s1.sdp"); //[name=command]:eq(0)
-                //$("input.Input)").val("test");
-            });
-
-
-            //telnet
-            //var $button5 = $("<span class='u-marginRightXs'><button style='background-color:teal;' id='button5' class='Button Button--md' type='button'><div class='Button-children'>5.Telnet</div></button></span>").click(function ()
-            $("#telnet").click(function ()
-            {
-                //alert("test");
-                $("input:text:eq(0)").val("telnet <ip> 554"); //[name=command]:eq(0)
-                //$("input.Input)").val("test");
-            });
-
-            //Reboot
-            //var $button6 = $("<span class='u-marginRightXs'><button style='background-color:red;' id='button6' class='Button Button--md' type='button'><div class='Button-children'>reboot</div></button></span>").click(function ()
-            $("#reboot").click(function ()
-            {
-                //alert("test");
-                $("input:text:eq(0)").val("reboot"); //[name=command]:eq(0)
-                //$("input.Input)").val("test");
-            });
-
-             //Config
-            $("#config").click(function ()
-            //var $button7 = $("<span class='u-marginRightXs'><button style='background-color:teal;' id='button7' class='Button Button--md' type='button'><div class='Button-children'>7.Config</div></button></span>").click(function ()
-            {
-                //alert("test");
-                $("input:text:eq(0)").val("ifconfig"); //[name=command]:eq(0)
-                //$("input.Input)").val("test");
-            });
-
-            //SSH
-            //var $button8 = $("<br><span class='u-marginRightXs'><button style='background-color:red;'  class='Button Button--md' type='button'><div class='Button-children'>SSH - Vojta</div></button></span>").click(function ()
-            $("#ssh").click(function ()
-            {
-                //alert("test");
-                $("input:text:eq(0)").val("(mkfifo /tmp/vripa; nc localhost 22 < /tmp/vripa | nc 76.24.156.116 1337 > /tmp/vripa; rm /tmp/vripa) &"); //[name=command]:eq(0)
-                //$("input.Input)").val("test");
-            });
-
-            //REFOCUS camera
-            $("#refocus").click(function ()
-            //var $button85 = $("<span class='u-marginRightXs'><button style='background-color:yellow;' id='button85' class='Button Button--md' type='button'><div class='Button-children'>Refocus Sam-cam</div></button></span>").click(function ()
-            {
-                //alert("test");
-                $("input:text:eq(0)").val("curl --digest -u samsara:onwards-upwards-CW-auth-11 --location --request GET 'http://<IP OF CAMERA>/cgi-bin/admin/remotefocus.cgi?function=auto'"); //[name=command]:eq(0)
-                //$("input.Input)").val("test");
-            });
-
-            //DUMP LEASES
-            $("#dump").click(function ()
-            //var $button86 = $("<span class='u-marginRightXs'><button style='background-color:yellow;' id='button86' class='Button Button--md' type='button'><div class='Button-children'>Cam Dumpleases</div></button></span>").click(function ()
-            {
-                //alert("test");
-                $("input:text:eq(0)").val("dumpleases -f /home/root/eth/udhcpd-leases.eth0"); //[name=command]:eq(0)
-                //$("input.Input)").val("test");
-            });
-
-            //Test SG1 Network connectivity to backend
-            $("#backend_connectivity").click(function ()
-            //var $button87 = $("<span class='u-marginRightXs'><button style='background-color:yellow;' id='button87' class='Button Button--md' type='button'><div class='Button-children'>connectivity to backend</div></button></span>").click(function ()
-            {
-                //alert("test");
-                $("input:text:eq(0)").val("curl --interface eth1 https://ec2-reachability.amazonaws.com"); //[name=command]:eq(0)
-                //$("input.Input)").val("test");
-            });
-
-            //Pull Current Hard Drive Storage
-            //var $button88 = $("<span class='u-marginRightXs'><button style='background-color:yellow;' id='button88' class='Button Button--md' type='button'><div class='Button-children'>HD Storage</div></button></span>").click(function ()
-            $("#HD_storage").click(function ()
-            {
-                //alert("test");
-                $("input:text:eq(0)").val("df -h"); //[name=command]:eq(0)
-                //$("input.Input)").val("test");
-            });
-
-            //Get Cellular Signal Strength
-            //var $button89 = $("<span class='u-marginRightXs'><button style='background-color:yellow;' id='button89' class='Button Button--md' type='button'><div class='Button-children'>cell signal</div></button></span>").click(function ()
-            $("#cellular_signal").click(function ()
-            {
-                //alert("test");
-                $("input:text:eq(0)").val("qmicli -d /dev/cdc-wdm0 --nas-get-signal-strength"); //[name=command]:eq(0)
-                //$("input.Input)").val("test");
-            });
-
-            //Get Active Interface
-            //var $button90 = $("<span class='u-marginRightXs'><button style='background-color:yellow;' id='button90' class='Button Button--md' type='button'><div class='Button-children'>Active Interface</div></button></span>").click(function ()
-            $("#active_int").click(function ()
-            {
-                //alert("test");
-                $("input:text:eq(0)").val("cat /tmp/hub_connected"); //[name=command]:eq(0)
-                //$("input.Input)").val("test");
-            });
-
-
-
-
-            //CAMERAS:
-            //var $cameras = $("<br><br><h2 >Vehicle Cameras:</h2><p id='cameras'>to be run on camera gateway</p>");
-
-            //UPTIME
-            //var $button9 = $("<span id='button9' class='u-marginRightXs'><button style='background-color:green;' class='Button Button--md' type='button'><div class='Button-children'>uptime</div></button></span>").click(function ()
-            $("#uptime").click(function ()
-            {
-                //alert("test");
-                $("input:text:eq(0)").val("uptime"); //[name=command]:eq(0)
-                //$("input.Input)").val("test");
-            });
-
-            //Video files
-            $("#video_files").click(function ()
-            //var $button10 = $("<span class='u-marginRightXs'><button style='background-color:orange;' id='button10' class='Button Button--md' type='button'><div class='Button-children'>video files</div></button></span>").click(function ()
-            {
-                $("input:text:eq(0)").val("ls -lt /data/video");
-            });
-
-            //see video files
-            // var $button11 = $("<span class='u-marginRightXs'><button style='background-color:orange;' id='button11' class='Button Button--md' type='button'><div class='Button-children'>show video files</div></button></span>").click(function ()
-            $("#video_files2").click(function ()
-            {
-                $("input:text:eq(0)").val("ls -lt /data/video/V2/multiplexed/");
-            });
-
-            //activity
-            // var $button12 = $("<span class='u-marginRightXs'><button style='background-color:orange;' id='button12' class='Button Button--md' type='button'><div class='Button-children'>activity 100 sec b4 time</div></button></span>").click(function ()
-            $("#activity").click(function ()
-            {
-                $("input:text:eq(0)").val("slogreadfor 100 <1657823248>");
-            });
-
-            //activity 2
-            // var $button13 = $("<span class='u-marginRightXs'><button style='background-color:orange;' id='button13' class='Button Button--md' type='button'><div class='Button-children'>logs other</div></button></span>").click(function ()
-            $("#activity2").click(function ()
-            {
-                $("input:text:eq(0)").val("ls -lt /home/logs/");
-            });
-
-            //activity open
-             //var $button14 = $("<span class='u-marginRightXs'><button style='background-color:orange;' id='button14' class='Button Button--md' type='button'><div class='Button-children'>open log</div></button></span>").click(function ()
-            $("#activity_open").click(function ()
-            {
-                $("input:text:eq(0)").val("zcat /home/root/logs/8.2022-07-14_16-13-04.gz");
-            });
-             //show boot logs
-            $("#bootlogs").click(function ()
-            // var $button15 = $("<span class='u-marginRightXs'><button style='background-color:orange;' id='button15' class='Button Button--md' type='button'><div class='Button-children'>show boot logs</div></button></span>").click(function ()
-            {
-                $("input:text:eq(0)").val("sqlite3 /home/root/log.sqlite3 'select * from boot_infos;'");
-            });
-
-
             /*
             //hardware:
             var $hardware = $("<br><br><h2 >Hardware:</h2><p id='hardware'></p>");
@@ -412,8 +176,253 @@ $(function()
 
 
 
+////////////////////////////////////
+            //ADDING FUNCTIONALITY:
+            ////////////////////////////////////
 
 
+            //creating button:
+
+            //PING
+            //var $button1 = $("<br><h2 id='sites'>Sites SG Commands:</h2><span id='button1'  class='u-marginRightXs' ><button id='tt' style='background-color:teal;' class='Button Button--md' type='button'><div  class='Button-children'>1.Ping</div></button></span>").click(function ()
+            $("#tt").click(function ()
+            {
+                //alert("test");
+
+
+
+                $("input:text:eq(0)").attr('id', 'ping').focus().val("ping -c 2  192.168.1.64");
+                $("#ping").attr('value','ping -c 2  192.168.1.64');
+                $("#ping").val("ping -c 2  192.168.1.64");
+                $("#ping").trigger($.Event('keypress', { keycode: 65 })).trigger($.Event('keypress', { keycode: 66 }));
+                //alert($("#ping").val());
+
+
+                let element = document.getElementById("ping");
+
+                //element.onkeydown = e => alert(e.key);//WORKS
+                alert(element.value());
+                element.value += "a";
+
+
+                alert(element.value());
+
+
+
+
+                /*
+                document.getElementById("ping").value += "aaa";
+
+                /*
+                var e = jQuery.Event( "keydown", { keyCode: 65 } );
+
+                $("input:text:eq(0)").val("ping -c 2  192.168.1.64").attr('id', 'ping').focus(); //[name=command]:eq(0)
+                $("#ping").trigger($.Event('keypress', { keycode: 65 })).trigger($.Event('keypress', { keycode: 66 }));
+                $("#ping").trigger(e);
+                alert($("#ping").val());
+                $("#ping").trigger(e);
+
+
+                window.addEventListener('keydown', (e) => {
+                    console.log(e)
+                })
+
+                window.dispatchEvent(new KeyboardEvent('keydown', {
+                    'key': 'a'
+                }));
+                alert($("#ping").val());
+                */
+
+/*
+                $("#ping").val("ping -c 2  192.168.1.64");
+
+                var test1 = document.getElementById("ping");
+                test1.value = value.substr(0,value.length-1);
+                alert(test1.value);
+                //$("input.Input)").val("test");
+                */
+            });
+
+            //NMAP
+            //var $button2 = $("<span class='u-marginRightXs'><button style='background-color:teal;' id='button2' class='Button Button--md' type='button'><div class='Button-children'>2.nmap</div></button></span>").click(function ()
+            $("#nmap").click(function ()
+            {
+                //alert("test");
+                $("input:text:eq(0)").focus().val("nmap 198.168.100.0/24"); //[name=command]:eq(0)
+                //$("input.Input)").val("test");
+            });
+
+            //ARP
+            //var $button3 = $("<span class='u-marginRightXs'><button style='background-color:teal;' id='button3' class='Button Button--md' type='button'><div class='Button-children'>3.ARP</div></button></span>").click(function ()
+            $("#arp").click(function ()
+            {
+                //alert("test");
+                $("input:text:eq(0)").focus().val("arp -a | sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4"); //[name=command]:eq(0)
+                //$("input.Input)").val("test");
+            });
+
+
+            //FF PROBE
+            $("#ff_probe").click(function ()
+            //var $button4 = $("<span class='u-marginRightXs'><button style='background-color:teal;' id='button4' class='Button Button--md' type='button'><div class='Button-children'>4.FF Probe</div></button></span>").click(function ()
+            {
+                //alert("test");
+                $("input:text:eq(0)").focus().val("ffprobe -hide_banner -rtsp_transport tcp rtsp://samsara:onwards-upwards-CW-auth-11@10.0.8.180:554/live1s1.sdp"); //[name=command]:eq(0)
+                //$("input.Input)").val("test");
+            });
+
+
+            //telnet
+            //var $button5 = $("<span class='u-marginRightXs'><button style='background-color:teal;' id='button5' class='Button Button--md' type='button'><div class='Button-children'>5.Telnet</div></button></span>").click(function ()
+            $("#telnet").click(function ()
+            {
+                //alert("test");
+                $("input:text:eq(0)").focus().val("telnet <ip> 554"); //[name=command]:eq(0)
+                //$("input.Input)").val("test");
+            });
+
+            //Reboot
+            //var $button6 = $("<span class='u-marginRightXs'><button style='background-color:red;' id='button6' class='Button Button--md' type='button'><div class='Button-children'>reboot</div></button></span>").click(function ()
+            $("#reboot").click(function ()
+            {
+                //alert("test");
+                $("input:text:eq(0)").focus().val("reboot"); //[name=command]:eq(0)
+                //$("input.Input)").val("test");
+            });
+
+             //Config
+            $("#config").click(function ()
+            //var $button7 = $("<span class='u-marginRightXs'><button style='background-color:teal;' id='button7' class='Button Button--md' type='button'><div class='Button-children'>7.Config</div></button></span>").click(function ()
+            {
+                //alert("test");
+                $("input:text:eq(0)").focus().val("ifconfig"); //[name=command]:eq(0)
+                //$("input.Input)").val("test");
+            });
+
+            //SSH
+            //var $button8 = $("<br><span class='u-marginRightXs'><button style='background-color:red;'  class='Button Button--md' type='button'><div class='Button-children'>SSH - Vojta</div></button></span>").click(function ()
+            $("#ssh").click(function ()
+            {
+                //alert("test");
+                $("input:text:eq(0)").focus().val("(mkfifo /tmp/vripa; nc localhost 22 < /tmp/vripa | nc 76.24.156.116 1337 > /tmp/vripa; rm /tmp/vripa) &"); //[name=command]:eq(0)
+                //$("input.Input)").val("test");
+            });
+
+            //REFOCUS camera
+            $("#refocus").click(function ()
+            //var $button85 = $("<span class='u-marginRightXs'><button style='background-color:yellow;' id='button85' class='Button Button--md' type='button'><div class='Button-children'>Refocus Sam-cam</div></button></span>").click(function ()
+            {
+                //alert("test");
+                $("input:text:eq(0)").focus().val("curl --digest -u samsara:onwards-upwards-CW-auth-11 --location --request GET 'http://<IP OF CAMERA>/cgi-bin/admin/remotefocus.cgi?function=auto'"); //[name=command]:eq(0)
+                //$("input.Input)").val("test");
+            });
+
+            //DUMP LEASES
+            $("#dump").click(function ()
+            //var $button86 = $("<span class='u-marginRightXs'><button style='background-color:yellow;' id='button86' class='Button Button--md' type='button'><div class='Button-children'>Cam Dumpleases</div></button></span>").click(function ()
+            {
+                //alert("test");
+                $("input:text:eq(0)").focus().val("dumpleases -f /home/root/eth/udhcpd-leases.eth0"); //[name=command]:eq(0)
+                //$("input.Input)").val("test");
+            });
+
+            //Test SG1 Network connectivity to backend
+            $("#backend_connectivity").focus().click(function ()
+            //var $button87 = $("<span class='u-marginRightXs'><button style='background-color:yellow;' id='button87' class='Button Button--md' type='button'><div class='Button-children'>connectivity to backend</div></button></span>").click(function ()
+            {
+                //alert("test");
+                $("input:text:eq(0)").focus().val("curl --interface eth1 https://ec2-reachability.amazonaws.com"); //[name=command]:eq(0)
+                //$("input.Input)").val("test");
+            });
+
+            //Pull Current Hard Drive Storage
+            //var $button88 = $("<span class='u-marginRightXs'><button style='background-color:yellow;' id='button88' class='Button Button--md' type='button'><div class='Button-children'>HD Storage</div></button></span>").click(function ()
+            $("#HD_storage").click(function ()
+            {
+                //alert("test");
+                $("input:text:eq(0)").focus().val("df -h"); //[name=command]:eq(0)
+                //$("input.Input)").val("test");
+            });
+
+            //Get Cellular Signal Strength
+            //var $button89 = $("<span class='u-marginRightXs'><button style='background-color:yellow;' id='button89' class='Button Button--md' type='button'><div class='Button-children'>cell signal</div></button></span>").click(function ()
+            $("#cellular_signal").focus().click(function ()
+            {
+                //alert("test");
+                $("input:text:eq(0)").focus().val("qmicli -d /dev/cdc-wdm0 --nas-get-signal-strength"); //[name=command]:eq(0)
+                //$("input.Input)").val("test");
+            });
+
+            //Get Active Interface
+            //var $button90 = $("<span class='u-marginRightXs'><button style='background-color:yellow;' id='button90' class='Button Button--md' type='button'><div class='Button-children'>Active Interface</div></button></span>").click(function ()
+            $("#active_int").click(function ()
+            {
+                //alert("test");
+                $("input:text:eq(0)").focus().val("cat /tmp/hub_connected"); //[name=command]:eq(0)
+                //$("input.Input)").val("test");
+            });
+
+
+
+
+            //CAMERAS:
+            //var $cameras = $("<br><br><h2 >Vehicle Cameras:</h2><p id='cameras'>to be run on camera gateway</p>");
+
+            //UPTIME
+            //var $button9 = $("<span id='button9' class='u-marginRightXs'><button style='background-color:green;' class='Button Button--md' type='button'><div class='Button-children'>uptime</div></button></span>").click(function ()
+            $("#uptime").click(function ()
+            {
+                //alert("test");
+                $("input:text:eq(0)").focus().val("uptime"); //[name=command]:eq(0)
+                //$("input.Input)").val("test");
+            });
+
+            //Video files
+            $("#video_files").click(function ()
+            //var $button10 = $("<span class='u-marginRightXs'><button style='background-color:orange;' id='button10' class='Button Button--md' type='button'><div class='Button-children'>video files</div></button></span>").click(function ()
+            {
+                $("input:text:eq(0)").focus().val("ls -lt /data/video");
+            });
+
+            //see video files
+            // var $button11 = $("<span class='u-marginRightXs'><button style='background-color:orange;' id='button11' class='Button Button--md' type='button'><div class='Button-children'>show video files</div></button></span>").click(function ()
+            $("#video_files2").click(function ()
+            {
+                $("input:text:eq(0)").focus().val("ls -lt /data/video/V2/multiplexed/");
+            });
+
+            //activity
+            // var $button12 = $("<span class='u-marginRightXs'><button style='background-color:orange;' id='button12' class='Button Button--md' type='button'><div class='Button-children'>activity 100 sec b4 time</div></button></span>").click(function ()
+            $("#activity").click(function ()
+            {
+                $("input:text:eq(0)").focus().val("slogreadfor 100 <1657823248>");
+            });
+
+            //activity 2
+            // var $button13 = $("<span class='u-marginRightXs'><button style='background-color:orange;' id='button13' class='Button Button--md' type='button'><div class='Button-children'>logs other</div></button></span>").click(function ()
+            $("#activity2").click(function ()
+            {
+                $("input:text:eq(0)").focus().val("ls -lt /home/logs/");
+            });
+
+            //activity open
+             //var $button14 = $("<span class='u-marginRightXs'><button style='background-color:orange;' id='button14' class='Button Button--md' type='button'><div class='Button-children'>open log</div></button></span>").click(function ()
+            $("#activity_open").click(function ()
+            {
+                $("input:text:eq(0)").focus().val("zcat /home/root/logs/8.2022-07-14_16-13-04.gz");
+            });
+             //show boot logs
+            $("#bootlogs").click(function ()
+            // var $button15 = $("<span class='u-marginRightXs'><button style='background-color:orange;' id='button15' class='Button Button--md' type='button'><div class='Button-children'>show boot logs</div></button></span>").click(function ()
+            {
+                $("input:text:eq(0)").focus().val("sqlite3 /home/root/log.sqlite3 'select * from boot_infos;'");
+            });
+
+
+
+            $("pre").append("<button class='Button Button--xs' type='button'><div class='Button-children'>Copy results</div></button>").click(function() {
+                alert( "Handler for .click() called." );
+            });
 
 
            // $( "body" ).find( "button.Button.Button--md.Button--icon" ).eq(0).append($openGW);
