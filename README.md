@@ -22,3 +22,5 @@ Here are the links you will need:
 3. Sample Gateway Page - https://cloud.samsara.com/o/39846/devices/212014918687023/command
 
 Please let me know what you think and if you find this helpful.
+
+![image](https://user-images.githubusercontent.com/11417885/182202027-97da3990-e2cd-4f4a-871d-8c80712e719c.png)
