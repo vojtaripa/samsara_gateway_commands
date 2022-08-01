@@ -86,9 +86,14 @@ $(function()
             $($hardware).insertAfter($button15);
             $($button16).insertAfter("#hardware");
             $($button17).insertAfter($button16);
+            $($button18).insertAfter($button17);
+            $($button19).insertAfter($button18);
+            $($button20).insertAfter($button19);
+            $($button21).insertAfter($button20);
+            $($button22).insertAfter($button21);
 
             // Connected Driver:
-            $($cd).insertAfter($hardware);
+            $($cd).insertAfter($button22);
 
             //ENGINEERING:
             $($eng).insertAfter($cd);
@@ -139,6 +144,12 @@ $(function()
   <td><h2 >Hardware:</h2></td>
   <td><span class='u-marginRightXs'><button style='background-color:orange;' id='old_obd' class='Button Button--md' type='button'><div class='Button-children'>Old OBD</div></button></span></td>
   <td><span class='u-marginRightXs'><button style='background-color:orange;' id='obd_handshake' class='Button Button--md' type='button'><div class='Button-children'>OBD Handshake</div></button></span></td>
+  <td><span class='u-marginRightXs'><button style='background-color:yellowgreen;' id='restart_obd' class='Button Button--md' type='button'><div class='Button-children'>Restart OBD</div></button></span></td>
+  <td><span class='u-marginRightXs'><button style='background-color:yellowgreen;' id='restart_wifi' class='Button Button--md' type='button'><div class='Button-children'>Restart WiFi</div></button></span></td>
+  <td><span class='u-marginRightXs'><button style='background-color:yellowgreen;' id='restart_gps' class='Button Button--md' type='button'><div class='Button-children'>Restart GPS</div></button></span></td>
+  <td><span class='u-marginRightXs'><button style='background-color:yellowgreen;' id='restart_cellular' class='Button Button--md' type='button'><div class='Button-children'>Restart Cellular</div></button></span></td>
+  <td><span class='u-marginRightXs'><button style='background-color:yellowgreen;' id='restart_bluetooth' class='Button Button--md' type='button'><div class='Button-children'>Restart Bluetooth</div></button></span></td>
+
 </tr>
 <tr style="background-color:gray">
   <td><h2 style="color:white;">Connected Driver:</h2></td>
@@ -433,6 +444,41 @@ $(function()
             // var $button17 = $("<span class='u-marginRightXs'><button style='background-color:orange;' id='button17' class='Button Button--md' type='button'><div class='Button-children'>OBD Handshake</div></button></span>").click(function ()
             {
                 $("input:text:eq(0)").focus().val("candump can0 -T 2000 -n 500");
+            });
+
+            //Restart OBD
+            $("#restart_obd").click(function ()
+            // var $button17 = $("<span class='u-marginRightXs'><button style='background-color:yellowgreen;' id='button18' class='Button Button--md' type='button'><div class='Button-children'>Restart OBD</div></button></span>").click(function ()
+            {
+                $("input:text:eq(0)").focus().val("systemctl restart obd_manager");
+            });
+
+            //Restart Wifi
+            $("#restart_wifi").click(function ()
+            // var $button17 = $("<span class='u-marginRightXs'><button style='background-color:yellowgreen;' id='button19' class='Button Button--md' type='button'><div class='Button-children'>Restart WiFi</div></button></span>").click(function ()
+            {
+                $("input:text:eq(0)").focus().val("systemctl restart go_network_manager");
+            });
+
+            //Restart GPS
+            $("#restart_gps").click(function ()
+            // var $button17 = $("<span class='u-marginRightXs'><button style='background-color:yellowgreen;' id='button20' class='Button Button--md' type='button'><div class='Button-children'>Restart GPS</div></button></span>").click(function ()
+            {
+                $("input:text:eq(0)").focus().val("systemctl restart location_manager");
+            });
+
+            //Restart Cellular
+            $("#restart_cellular").click(function ()
+            // var $button17 = $("<span class='u-marginRightXs'><button style='background-color:yellowgreen;' id='button21' class='Button Button--md' type='button'><div class='Button-children'>Restart Cellular</div></button></span>").click(function ()
+            {
+                $("input:text:eq(0)").focus().val("systemctl restart cellular_manager");
+            });
+
+            //Restart Bluetooth
+            $("#restart_bluetooth").click(function ()
+            // var $button17 = $("<span class='u-marginRightXs'><button style='background-color:yellowgreen;' id='button22' class='Button Button--md' type='button'><div class='Button-children'>Restart Bluetooth</div></button></span>").click(function ()
+            {
+                $("input:text:eq(0)").focus().val("systemctl restart widget_mgr");
             });
 
             $("pre").append("<button class='Button Button--xs' type='button'><div class='Button-children'>Copy results</div></button>").click(function() {
